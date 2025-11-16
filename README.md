@@ -1,13 +1,15 @@
 # GS2 – Cyber Security  
-## Vulnerabilidades em Aplicações
-
-Repositório criado para a **Global Solution de Cyber Security** da FIAP, com foco em demonstrar vulnerabilidades comuns em aplicações, suas correções e a integração dessas práticas a um pipeline de **DevSecOps**.
-
 Trabalho desenvolvido pelos alunos:
 
 - **Felipe Bressane – RM 97688**  
 - **Nicolas Boni – RM 551965**  
-- **Kaue Pastori – RM 98501** :contentReference[oaicite:0]{index=0}
+- **Kaue Pastori – RM 98501**
+
+---
+
+## Vulnerabilidades em Aplicações
+
+Repositório criado para a **Global Solution de Cyber Security** da FIAP, com foco em demonstrar vulnerabilidades comuns em aplicações, suas correções e a integração dessas práticas a um pipeline de **DevSecOps**.
 
 ---
 
