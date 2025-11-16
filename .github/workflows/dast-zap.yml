@@ -1,18 +1,22 @@
 name: DAST - OWASP ZAP
 
 on:
-  workflow_dispatch:   # roda manualmente pelo botão "Run workflow"
-  schedule:
-    - cron: "0 3 * * 1"  # opcional: toda segunda às 03:00 UTC
+  workflow_dispatch:   # você roda manualmente pelo botão "Run workflow"
+  # opcional: agendar
+  # schedule:
+  #   - cron: "0 3 * * 1"
 
 jobs:
   zap-scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ZAP Baseline Scan
+      - name: ZAP Baseline Scan em app de demonstração
         uses: zaproxy/action-baseline@v0.12.0
+        continue-on-error: true       # não "quebra" o pipeline se achar problemas
         with:
-          # TROCAR depois pelo endereço real da sua aplicação (Flask, etc)
-          target: "https://seu-endereco-da-aplicacao.com"
-          cmd_options: "-a"
+          # alvo público de teste (demonstrar o DAST)
+          target: "https://demo.testfire.net"
+          # -a = modo "agressivo" de varredura
+          # -I = ignora falhas de aviso para não falhar tão fácil
+          cmd_options: "-a -I"
