@@ -1,0 +1,18 @@
+name: DAST - OWASP ZAP
+
+on:
+  workflow_dispatch:   # roda manualmente pelo botão "Run workflow"
+  schedule:
+    - cron: "0 3 * * 1"  # opcional: toda segunda às 03:00 UTC
+
+jobs:
+  zap-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          # TROCAR depois pelo endereço real da sua aplicação (Flask, etc)
+          target: "https://seu-endereco-da-aplicacao.com"
+          cmd_options: "-a"
