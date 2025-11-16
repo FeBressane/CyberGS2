@@ -1,0 +1,4 @@
+
+# Exemplo de dependências atualizadas (versões ilustrativas)
+Flask==3.0.0
+biblioteca-pagamento==1.2.3
