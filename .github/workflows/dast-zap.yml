@@ -2,21 +2,24 @@ name: DAST - OWASP ZAP
 
 on:
   workflow_dispatch:   # você roda manualmente pelo botão "Run workflow"
-  # opcional: agendar
-  # schedule:
-  #   - cron: "0 3 * * 1"
 
 jobs:
   zap-scan:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Ajusta permissões para o container do ZAP conseguir escrever em /zap/wrk
+      - name: Ajustar permissões do workspace
+        run: chmod -R 777 "$GITHUB_WORKSPACE"
+
       - name: ZAP Baseline Scan em app de demonstração
         uses: zaproxy/action-baseline@v0.12.0
-        continue-on-error: true       # não "quebra" o pipeline se achar problemas
+        continue-on-error: true   # mesmo se der falha de segurança, o job não "quebra"
         with:
-          # alvo público de teste (demonstrar o DAST)
+          # alvo público para demonstrar o DAST
           target: "https://demo.testfire.net"
-          # -a = modo "agressivo" de varredura
-          # -I = ignora falhas de aviso para não falhar tão fácil
+          # -a = modo agressivo | -I = ignora alguns avisos para não falhar tão fácil
           cmd_options: "-a -I"
