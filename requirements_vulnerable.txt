@@ -1,5 +1,5 @@
 
 # Exemplo de dependências com versões desatualizadas (apenas didático)
-Flask==1.0.0
+Flask==2.2.5
 # biblioteca fictícia com versão supostamente vulnerável
 biblioteca-pagamento==1.0.0
